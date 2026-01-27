@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Crawford Heating — Boiler Installation & Plumbing (40 years experience)</title>
+  <meta name="description" content="Crawford Heating: Local heating & plumbing engineer with 40 years' experience. Specialist in new boiler installations, boiler replacements, repairs and gas safety. Fast quotes, tidy workmanship, reliable service.">
+  <meta name="keywords" content="boiler installation, boiler replacement, heating engineer, plumbing, gas safe, boiler fitter, new boiler, central heating, Crawford Heating">
+  <link rel="canonical" href="https://example.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Crawford Heating — Boiler Installation & Plumbing">
+  <meta property="og:description" content="Local heating & plumbing engineer with 40 years' experience. Specialist in new boiler installations and replacements. Free quotes.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/">
+  <meta property="og:image" content="/assets/og-boiler.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Tailwind Play CDN (fast for prototypes; replace with build pipeline for production) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Tailwind config (small, easy to maintain)
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1f2937', // slate-800
+            accent: '#ef4444'   // red-500
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Alpine for minimal interactivity -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Simple, readable font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Small global styles to complement Tailwind */
+    :root { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+    /* Maintainable utility: container width used across the site */
+    .site-container { max-width: 1100px; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
+  </style>
+
+  <!-- Structured data: LocalBusiness + Service + FAQ for better SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness"
+    "name": "Crawford Heating",
+    "description": "Local heating and plumbing engineer with 40 years' experience specialising in new boiler installations and replacements.",
+    "telephone": "+447887876140",
+    "url": "https://example.com/",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Your Town",
+      "addressRegion": "Your Region",
+      "postalCode": "POSTCODE",
+      "streetAddress": "Local area service"
+    },
+    "areaServed": "Your Town, Surrounding Areas",
+    "sameAs": []
+  }
+  </script>
+
+  <meta name="robots" content="index,follow">
+</head>
+<body class="bg-gray-50 text-slate-900 leading-relaxed">
+  <!-- Header / Navigation -->
+  <header class="bg-white shadow-sm sticky top-0 z-30">
+    <div class="site-container flex items-center justify-between py-4">
+      <a href="#top" class="flex items-center gap-3 text-primary">
+        <svg class="w-10 h-10 text-accent" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+          <path d="M3 13l4 4 8-8 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="font-bold text-lg">Crawford Heating</span>
+      </a>
+
+      <nav class="hidden md:flex gap-6 text-sm items-center">
+        <a href="#services" class="hover:underline">Services</a>
+        <a href="#portfolio" class="hover:underline">Portfolio</a>
+        <a href="#testimonials" class="hover:underline">Testimonials</a>
+        <a href="#contact" class="bg-accent text-white px-4 py-2 rounded-md shadow-sm hover:opacity-95">Get a free quote</a>
+      </nav>
+
+      <!-- Mobile menu toggle -->
+      <div x-data="{open:false}" class="md:hidden">
+        <button @click="open = !open" aria-expanded="false" class="p-2 rounded-md border">
+          <span x-text="open ? 'Close' : 'Menu'"></span>
+        </button>
+        <div x-show="open" @click.outside="open=false" class="mt-2 bg-white p-4 rounded-md shadow-sm">
+          <a href="#services" class="block py-1">Services</a>
+          <a href="#portfolio" class="block py-1">Portfolio</a>
+          <a href="#testimonials" class="block py-1">Testimonials</a>
+          <a href="#contact" class="block py-1 font-semibold text-accent">Get a free quote</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="top">
+    <section class="bg-gradient-to-r from-white via-gray-50 to-white py-16">
+      <div class="site-container grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div>
+          <p class="text-sm text-accent font-semibold">40 years local experience</p>
+          <h1 class="mt-4 text-3xl md:text-4xl font-extrabold">Trusted boiler installation, heating repairs & plumbing</h1>
+          <p class="mt-4 text-slate-700">Reliable, tidy and Gas Safe qualified heating engineer specialising in new boiler installations, replacements and full central heating upgrades. Free, transparent quotes — quality workmanship you can trust.</p>
+
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#contact" class="inline-block bg-accent text-white px-5 py-3 rounded-md shadow-sm">Book a free quote</a>
+            <a href="#portfolio" class="inline-block border border-gray-200 px-5 py-3 rounded-md">View recent installs</a>
+          </div>
+
+          <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-slate-600">
+            <li>Fast, reliable boiler installations</li>
+            <li>Gas Safe certified engineer</li>
+            <li>Transparent pricing & warranties</li>
+            <li>Family-run, local to the area</li>
+          </ul>
+
+          <p class="mt-6 text-xs text-slate-500">Phone: <a href="tel:+447887876140" class="text-primary">+44 7887 876140</a> • Available Mon–Sat</p>
+        </div>
+
+        <!-- Hero image placeholder; replace with a real photo of a completed boiler installation -->
+        <div class="rounded-lg overflow-hidden bg-gray-100 aspect-[4/3] flex items-center justify-center">
+          <img src="https://lh3.googleusercontent.com/p/AF1QipMf3VaiClHP3vMwxh06mAI33aAJ7b4CeynguQMt=s680-w680-h510-rw" alt="Completed boiler installation by Crawford Heating" class="object-cover w-full h-full">
+          <!-- If you don't have an image yet, use a local path like assets/hero-boiler.jpg -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-16">
+      <div class="site-container">
+        <h2 class="text-2xl font-bold">Services — New boilers & more</h2>
+        <p class="mt-2 text-slate-600">Focused on boiler installations, we provide end-to-end service: advice, supply, fitting, and aftercare.</p>
+
+        <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <article class="p-6 bg-white rounded-lg shadow-sm">
+            <h3 class="font-semibold">New Boiler Installation</h3>
+            <p class="mt-2 text-sm text-slate-600">Supply and fit of high-efficiency condensing boilers. Fully certified work with warranty and commissioning documentation.</p>
+          </article>
+
+          <article class="p-6 bg-white rounded-lg shadow-sm">
+            <h3 class="font-semibold">Boiler Replacement</h3>
+            <p class="mt-2 text-sm text-slate-600">Upgrade an old boiler to a modern, energy-efficient model to save on running costs and improve reliability.</p>
+          </article>
+
+          <article class="p-6 bg-white rounded-lg shadow-sm">
+            <h3 class="font-semibold">Repairs & Servicing</h3>
+            <p class="mt-2 text-sm text-slate-600">Routine servicing and emergency repairs to keep your heating running smoothly all year round.</p>
+          </article>
+
+          <article class="p-6 bg-white rounded-lg shadow-sm">
+            <h3 class="font-semibold">Full Central Heating</h3>
+            <p class="mt-2 text-sm text-slate-600">Radiator replacements, system upgrades, and balancing for even, reliable heat throughout the home.</p>
+          </article>
+
+          <article class="p-6 bg-white rounded-lg shadow-sm">
+            <h3 class="font-semibold">Plumbing & Bathroom Work</h3>
+            <p class="mt-2 text-sm text-slate-600">From leaks to full bathroom plumbing — professional, tidy workmanship.</p>
+          </article>
+
+          <article class="p-6 bg-white rounded-lg shadow-sm">
+            <h3 class="font-semibold">Gas Safety & Certificates</h3>
+            <p class="mt-2 text-sm text-slate-600">CP12 and landlord certificates issued after checks and servicing where required.</p>
+          </article>
+        </div>
+
+        <p class="mt-6 text-sm text-slate-600">All work is carried out with clear, written estimates and warranty information. Contact for a free on-site quote.</p>
+      </div>
+    </section>
+
+    <!-- Portfolio / Past Work: image placeholders -->
+    <section id="portfolio" class="py-16 bg-white">
+      <div class="site-container">
+        <h2 class="text-2xl font-bold">Recent installations & past work</h2>
+        <p class="mt-2 text-slate-600">Examples of completed boiler installations, replacements and system upgrades. Click an image to enlarge (replace placeholder images with real photos in assets/).</p>
+
+        <!-- Image grid: replace src with your project photos. Keep filenames consistent -->
+        <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+          <!-- Example placeholder items -->
+          <figure class="bg-gray-100 rounded overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/p/AF1QipNcqLVhThFs2mmnUWjnLFGe2Gn_VEJOEXtJjJVg=s680-w680-h510-rw" alt="Combi boiler installation - rear of boiler unit" class="object-cover w-full h-48">
+            <figcaption class="p-2 text-xs text-slate-600">Combi boiler install</figcaption>
+          </figure>
+
+          <figure class="bg-gray-100 rounded overflow-hidden">
+            <img src="image00005.jpeg" alt="System boiler repair" class="object-cover w-full h-48">
+            <figcaption class="p-2 text-xs text-slate-600">System boiler Repair</figcaption>
+          </figure>
+
+          <figure class="bg-gray-100 rounded overflow-hidden">
+            <img src="image00002.jpeg" alt="Boiler and new radiators fitted" class="object-cover w-full h-48">
+            <figcaption class="p-2 text-xs text-slate-600">Full heating upgrade</figcaption>
+          </figure>
+
+          <figure class="bg-gray-100 rounded overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/p/AF1QipP_pmE1CIjqtvWDp0nm8nrHxapvHHH-oYqybDJV=s680-w680-h510-rw" alt="Full Bathroom Renovation" class="object-cover w-full h-48">
+            <figcaption class="p-2 text-xs text-slate-600">Full Bathroom Renovation</figcaption>
+          </figure>
+
+          <!-- Add more figures as you add photos -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-16">
+      <div class="site-container">
+        <h2 class="text-2xl font-bold">What customers say</h2>
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <blockquote class="p-6 bg-white rounded-lg shadow-sm">
+            <p class="text-slate-700">"Fast, clean and great communication. New boiler fitted in a day and explained everything. Highly recommended."</p>
+            <footer class="mt-4 text-sm text-slate-500">— J. Martin, Local homeowner</footer>
+          </blockquote>
+
+          <blockquote class="p-6 bg-white rounded-lg shadow-sm">
+            <p class="text-slate-700">"Great price and the system performs better than before. Would use again."</p>
+            <footer class="mt-4 text-sm text-slate-500">— A. Patel</footer>
+          </blockquote>
+
+          <blockquote class="p-6 bg-white rounded-lg shadow-sm">
+            <p class="text-slate-700">"Professional and tidy. Issued certificate straight away. Excellent service."</p>
+            <footer class="mt-4 text-sm text-slate-500">— Landlord, Greater Manchester</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / CTA -->
+    <section id="contact" class="py-16 bg-gradient-to-b from-white to-gray-50">
+      <div class="site-container grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        <div>
+          <h2 class="text-2xl font-bold">Get your free no-obligation quote</h2>
+          <p class="mt-2 text-slate-600">Call or message to arrange a home visit. Clear pricing, flexible appointments and an experienced engineer who leaves homes tidy.</p>
+
+          <div class="mt-6">
+            <p class="text-sm">Phone</p>
+            <a href="tel:+447887876140" class="text-2xl font-semibold text-accent">+44 7887 876140</a>
+
+            <p class="mt-4 text-sm">Email</p>
+            <a href="mailto:chapsenquirys@gmail.com" class="text-primary">chapsenquirys@gmail.com</a>
+
+            <p class="mt-4 text-sm">Service area</p>
+            <p class="text-slate-600">Liverpool, Manchester &amp; everywhere in between — call to check availability.</p>
+          </div>
+
+          <div class="mt-6">
+            <a href="#" class="inline-block bg-primary text-white px-4 py-2 rounded-md">Request callback</a>
+          </div>
+
+          <p class="mt-6 text-xs text-slate-500">Availability: Mon–Sat. Emergency repairs subject to availability. For landlord / commercial work please call for a bespoke quote.</p>
+        </div>
+
+        <div>
+            <form x-data="{name:'',email:'',phone:'',message:''}"
+                  action="https://formsubmit.co/chapsenquirys@gmail.com"
+                  method="POST"
+                  class="bg-white p-6 rounded-lg shadow-sm">
+              <!-- Spam & behaviour control -->
+              <input type="hidden" name="_subject" value="Crawford Heating — New quote request">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_next" value="https://example.com/thank-you">
+              <input type="text" name="_honey" style="display:none">
+
+              <label class="block text-sm font-medium">Name</label>
+              <input name="name" x-model="name" class="w-full mt-1 p-2 border rounded" required>
+
+              <label class="block text-sm font-medium mt-4">Phone</label>
+              <input name="phone" x-model="phone" class="w-full mt-1 p-2 border rounded" required>
+
+              <label class="block text-sm font-medium mt-4">Email</label>
+              <input name="email" x-model="email" type="email" class="w-full mt-1 p-2 border rounded">
+
+              <label class="block text-sm font-medium mt-4">Message</label>
+              <textarea name="message" x-model="message" rows="4" class="w-full mt-1 p-2 border rounded" placeholder="Brief details about the job (e.g. boiler age, property type)"></textarea>
+
+              <div class="mt-4 flex items-center gap-3">
+                <button type="submit" class="bg-accent text-white px-4 py-2 rounded">Send request</button>
+                <a href="tel:+447887876140" class="text-sm text-primary">Or call +44 7887 876140</a>
+              </div>
+
+              <p class="mt-3 text-xs text-slate-500">By sending this you agree to be contacted about this enquiry. Personal data used only to respond to your request.</p>
+            </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ for SEO -->
+    <section class="py-16">
+      <div class="site-container">
+        <h2 class="text-2xl font-bold">Frequently asked questions</h2>
+        <div class="mt-6 space-y-4">
+          <details class="bg-white p-4 rounded shadow-sm">
+            <summary class="font-semibold">How long does a new boiler installation take?</summary>
+            <p class="mt-2 text-slate-600">Typically one day for a like-for-like swap. Full system upgrades may take longer; a site visit will confirm timing.</p>
+          </details>
+
+          <details class="bg-white p-4 rounded shadow-sm">
+            <summary class="font-semibold">Do you provide warranties?</summary>
+            <p class="mt-2 text-slate-600">Yes. We supply manufacturer warranties where available and provide workmanship guarantees on installations.</p>
+          </details>
+
+          <details class="bg-white p-4 rounded shadow-sm">
+            <summary class="font-semibold">Are you Gas Safe registered?</summary>
+            <p class="mt-2 text-slate-600">Yes — all gas work is carried out by a Gas Safe registered engineer. Certificates issued on completion.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white py-8">
+    <div class="site-container flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div>
+        <div class="font-semibold">Crawford Heating</div>
+        <div class="text-sm mt-1">Experienced heating & plumbing engineer — 40 years</div>
+        <div class="text-sm mt-2">Phone: <a href="tel:+447887876140" class="underline">+44 7887 876140</a></div>
+      </div>
+
+      <nav class="flex gap-4 text-sm">
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="text-sm">&copy; <span x-text="new Date().getFullYear()">2026</span> Crawford Heating</div>
+    </div>
+  </footer>
+
+  <!-- FAQ structured data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How long does a new boiler installation take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Typically one day for a like-for-like swap. Full system upgrades may take longer; a site visit will confirm timing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you provide warranties?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We supply manufacturer warranties where available and provide workmanship guarantees on installations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are you Gas Safe registered?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — all gas work is carried out by a Gas Safe registered engineer. Certificates issued on completion."
+        }
+      }
+    ]
+  }
+  </script>
+
+</body>
+</html>
