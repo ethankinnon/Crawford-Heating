@@ -6,50 +6,40 @@
   <title>Crawford Heating — Boiler Installation & Plumbing (40 years experience)</title>
   <meta name="description" content="Crawford Heating: Local heating & plumbing engineer with 40 years' experience. Specialist in new boiler installations, boiler replacements, repairs and gas safety. Fast quotes, tidy workmanship, reliable service.">
   <meta name="keywords" content="boiler installation, boiler replacement, heating engineer, plumbing, gas safe, boiler fitter, new boiler, central heating, Crawford Heating">
-  <link rel="canonical" href="https://example.com/">
+  <link rel="canonical" href="https://crawfordheating.uk">
 
-  <!-- Open Graph -->
   <meta property="og:title" content="Crawford Heating — Boiler Installation & Plumbing">
   <meta property="og:description" content="Local heating & plumbing engineer with 40 years' experience. Specialist in new boiler installations and replacements. Free quotes.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://example.com/">
-  <meta property="og:image" content="/assets/og-boiler.jpg">
+  <meta property="og:url" content="https://crawfordheating.uk">
+  <meta property="og:image" content="https://lh3.googleusercontent.com/p/AF1QipMf3VaiClHP3vMwxh06mAI33aAJ7b4CeynguQMt=s680-w680-h510-rw">
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Tailwind Play CDN (fast for prototypes; replace with build pipeline for production) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Tailwind config (small, easy to maintain)
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            primary: '#1f2937', // slate-800
-            accent: '#ef4444'   // red-500
+            primary: '#1f2937',
+            accent: '#ef4444'
           }
         }
       }
     }
   </script>
 
-  <!-- Alpine for minimal interactivity -->
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-  <!-- Simple, readable font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* Small global styles to complement Tailwind */
     :root { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
-    /* Maintainable utility: container width used across the site */
     .site-container { max-width: 1100px; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
   </style>
 
-  <!-- Structured data: LocalBusiness + Service + FAQ for better SEO -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -57,15 +47,15 @@
     "name": "Crawford Heating",
     "description": "Local heating and plumbing engineer with 40 years' experience specialising in new boiler installations and replacements.",
     "telephone": "+447887876140",
-    "url": "https://example.com/",
+    "url": "https://crawfordheating.uk",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Your Town",
-      "addressRegion": "Your Region",
-      "postalCode": "POSTCODE",
-      "streetAddress": "Local area service"
+      "addressLocality": "Upholland",
+      "addressRegion": "Lancashire",
+      "postalCode": "WN89QS",
+      "streetAddress": "Crawford Village"
     },
-    "areaServed": "Your Town, Surrounding Areas",
+    "areaServed": "Liverpool, Manchester and surrounding areas",
     "sameAs": []
   }
   </script>
@@ -73,7 +63,6 @@
   <meta name="robots" content="index,follow">
 </head>
 <body class="bg-gray-50 text-slate-900 leading-relaxed">
-  <!-- Header / Navigation -->
   <header class="bg-white shadow-sm sticky top-0 z-30">
     <div class="site-container flex items-center justify-between py-4">
       <a href="#top" class="flex items-center gap-3 text-primary">
@@ -90,7 +79,6 @@
         <a href="#contact" class="bg-accent text-white px-4 py-2 rounded-md shadow-sm hover:opacity-95">Get a free quote</a>
       </nav>
 
-      <!-- Mobile menu toggle -->
       <div x-data="{open:false}" class="md:hidden">
         <button @click="open = !open" aria-expanded="false" class="p-2 rounded-md border">
           <span x-text="open ? 'Close' : 'Menu'"></span>
@@ -105,7 +93,6 @@
     </div>
   </header>
 
-  <!-- Hero -->
   <main id="top">
     <section class="bg-gradient-to-r from-white via-gray-50 to-white py-16">
       <div class="site-container grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -129,15 +116,12 @@
           <p class="mt-6 text-xs text-slate-500">Phone: <a href="tel:+447887876140" class="text-primary">+44 7887 876140</a> • Available Mon–Sat</p>
         </div>
 
-        <!-- Hero image placeholder; replace with a real photo of a completed boiler installation -->
         <div class="rounded-lg overflow-hidden bg-gray-100 aspect-[4/3] flex items-center justify-center">
           <img src="https://lh3.googleusercontent.com/p/AF1QipMf3VaiClHP3vMwxh06mAI33aAJ7b4CeynguQMt=s680-w680-h510-rw" alt="Completed boiler installation by Crawford Heating" class="object-cover w-full h-full">
-          <!-- If you don't have an image yet, use a local path like assets/hero-boiler.jpg -->
         </div>
       </div>
     </section>
 
-    <!-- Services -->
     <section id="services" class="py-16">
       <div class="site-container">
         <h2 class="text-2xl font-bold">Services — New boilers & more</h2>
@@ -179,15 +163,12 @@
       </div>
     </section>
 
-    <!-- Portfolio / Past Work: image placeholders -->
     <section id="portfolio" class="py-16 bg-white">
       <div class="site-container">
         <h2 class="text-2xl font-bold">Recent installations & past work</h2>
-        <p class="mt-2 text-slate-600">Examples of completed boiler installations, replacements and system upgrades. Click an image to enlarge (replace placeholder images with real photos in assets/).</p>
+        <p class="mt-2 text-slate-600">Examples of completed boiler installations, replacements and system upgrades.</p>
 
-        <!-- Image grid: replace src with your project photos. Keep filenames consistent -->
         <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-          <!-- Example placeholder items -->
           <figure class="bg-gray-100 rounded overflow-hidden">
             <img src="https://lh3.googleusercontent.com/p/AF1QipNcqLVhThFs2mmnUWjnLFGe2Gn_VEJOEXtJjJVg=s680-w680-h510-rw" alt="Combi boiler installation - rear of boiler unit" class="object-cover w-full h-48">
             <figcaption class="p-2 text-xs text-slate-600">Combi boiler install</figcaption>
@@ -207,13 +188,10 @@
             <img src="https://lh3.googleusercontent.com/p/AF1QipP_pmE1CIjqtvWDp0nm8nrHxapvHHH-oYqybDJV=s680-w680-h510-rw" alt="Full Bathroom Renovation" class="object-cover w-full h-48">
             <figcaption class="p-2 text-xs text-slate-600">Full Bathroom Renovation</figcaption>
           </figure>
-
-          <!-- Add more figures as you add photos -->
         </div>
       </div>
     </section>
 
-    <!-- Testimonials -->
     <section id="testimonials" class="py-16">
       <div class="site-container">
         <h2 class="text-2xl font-bold">What customers say</h2>
@@ -236,7 +214,6 @@
       </div>
     </section>
 
-    <!-- Contact / CTA -->
     <section id="contact" class="py-16 bg-gradient-to-b from-white to-gray-50">
       <div class="site-container grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
         <div>
@@ -266,10 +243,9 @@
                   action="https://formsubmit.co/chapsenquirys@gmail.com"
                   method="POST"
                   class="bg-white p-6 rounded-lg shadow-sm">
-              <!-- Spam & behaviour control -->
               <input type="hidden" name="_subject" value="Crawford Heating — New quote request">
               <input type="hidden" name="_captcha" value="false">
-              <input type="hidden" name="_next" value="https://example.com/thank-you">
+              <input type="hidden" name="_next" value="https://crawfordheating.uk">
               <input type="text" name="_honey" style="display:none">
 
               <label class="block text-sm font-medium">Name</label>
@@ -295,7 +271,6 @@
       </div>
     </section>
 
-    <!-- FAQ for SEO -->
     <section class="py-16">
       <div class="site-container">
         <h2 class="text-2xl font-bold">Frequently asked questions</h2>
@@ -320,7 +295,6 @@
 
   </main>
 
-  <!-- Footer -->
   <footer class="bg-primary text-white py-8">
     <div class="site-container flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
       <div>
@@ -339,7 +313,6 @@
     </div>
   </footer>
 
-  <!-- FAQ structured data for SEO -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
