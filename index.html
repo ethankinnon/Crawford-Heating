@@ -38,12 +38,31 @@
   <style>
     :root { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
     .site-container { max-width: 1100px; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
+    
+    /* Sticky call button for mobile */
+    .sticky-call-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 50;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    
+    @media (min-width: 768px) {
+      .sticky-call-btn { display: none; }
+    }
   </style>
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness"
+    "@type": "LocalBusiness",
     "name": "Crawford Heating",
     "description": "Local heating and plumbing engineer with 40 years' experience specialising in new boiler installations and replacements.",
     "telephone": "+447887876140",
@@ -52,22 +71,34 @@
       "@type": "PostalAddress",
       "addressLocality": "Upholland",
       "addressRegion": "Lancashire",
-      "postalCode": "WN89QS",
+      "postalCode": "WN8 9QS",
       "streetAddress": "Crawford Village"
     },
     "areaServed": "Liverpool, Manchester and surrounding areas",
-    "sameAs": []
+    "sameAs": [],
+    "priceRange": "££",
+    "openingHours": "Mo-Sa 08:00-18:00"
   }
   </script>
 
   <meta name="robots" content="index,follow">
 </head>
 <body class="bg-gray-50 text-slate-900 leading-relaxed">
+  <!-- Sticky Call Button for Mobile -->
+  <a href="tel:+447887876140" class="sticky-call-btn bg-accent text-white px-6 py-4 rounded-full flex items-center gap-2">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+    </svg>
+    <span class="font-semibold">Call Now</span>
+  </a>
+
   <header class="bg-white shadow-sm sticky top-0 z-30">
     <div class="site-container flex items-center justify-between py-4">
       <a href="#top" class="flex items-center gap-3 text-primary">
         <svg class="w-10 h-10 text-accent" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-          <path d="M3 13l4 4 8-8 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" fill="currentColor" opacity="0.2"/>
+          <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9 12l2 2 4-4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <span class="font-bold text-lg">Crawford Heating</span>
       </a>
@@ -80,14 +111,14 @@
       </nav>
 
       <div x-data="{open:false}" class="md:hidden">
-        <button @click="open = !open" aria-expanded="false" class="p-2 rounded-md border">
+        <button @click="open = !open" aria-expanded="false" aria-label="Toggle menu" class="p-2 rounded-md border">
           <span x-text="open ? 'Close' : 'Menu'"></span>
         </button>
-        <div x-show="open" @click.outside="open=false" class="mt-2 bg-white p-4 rounded-md shadow-sm">
-          <a href="#services" class="block py-1">Services</a>
-          <a href="#portfolio" class="block py-1">Portfolio</a>
-          <a href="#testimonials" class="block py-1">Testimonials</a>
-          <a href="#contact" class="block py-1 font-semibold text-accent">Get a free quote</a>
+        <div x-show="open" @click.outside="open=false" class="absolute right-4 mt-2 bg-white p-4 rounded-md shadow-lg border">
+          <a href="#services" class="block py-2 hover:text-accent">Services</a>
+          <a href="#portfolio" class="block py-2 hover:text-accent">Portfolio</a>
+          <a href="#testimonials" class="block py-2 hover:text-accent">Testimonials</a>
+          <a href="#contact" class="block py-2 font-semibold text-accent">Get a free quote</a>
         </div>
       </div>
     </div>
@@ -102,22 +133,22 @@
           <p class="mt-4 text-slate-700">Reliable, tidy and Gas Safe qualified heating engineer specialising in new boiler installations, replacements and full central heating upgrades. Free, transparent quotes — quality workmanship you can trust.</p>
 
           <div class="mt-6 flex flex-wrap gap-3">
-            <a href="#contact" class="inline-block bg-accent text-white px-5 py-3 rounded-md shadow-sm">Book a free quote</a>
-            <a href="#portfolio" class="inline-block border border-gray-200 px-5 py-3 rounded-md">View recent installs</a>
+            <a href="tel:+447887876140" class="inline-block bg-accent text-white px-5 py-3 rounded-md shadow-sm hover:bg-red-600 transition">📞 Call for Free Quote</a>
+            <a href="#contact" class="inline-block border border-gray-300 px-5 py-3 rounded-md hover:border-accent transition">Send Message</a>
           </div>
 
           <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-slate-600">
-            <li>Fast, reliable boiler installations</li>
-            <li>Gas Safe certified engineer</li>
-            <li>Transparent pricing & warranties</li>
-            <li>Family-run, local to the area</li>
+            <li>✓ Fast, reliable boiler installations</li>
+            <li>✓ Gas Safe certified engineer</li>
+            <li>✓ Transparent pricing & warranties</li>
+            <li>✓ Family-run, local to the area</li>
           </ul>
 
-          <p class="mt-6 text-xs text-slate-500">Phone: <a href="tel:+447887876140" class="text-primary">+44 7887 876140</a> • Available Mon–Sat</p>
+          <p class="mt-6 text-xs text-slate-500">Phone: <a href="tel:+447887876140" class="text-primary font-semibold">+44 7887 876140</a> • Available Mon–Sat</p>
         </div>
 
         <div class="rounded-lg overflow-hidden bg-gray-100 aspect-[4/3] flex items-center justify-center">
-          <img src="https://lh3.googleusercontent.com/p/AF1QipMf3VaiClHP3vMwxh06mAI33aAJ7b4CeynguQMt=s680-w680-h510-rw" alt="Completed boiler installation by Crawford Heating" class="object-cover w-full h-full">
+          <img src="https://lh3.googleusercontent.com/p/AF1QipMf3VaiClHP3vMwxh06mAI33aAJ7b4CeynguQMt=s680-w680-h510-rw" alt="Completed boiler installation by Crawford Heating" class="object-cover w-full h-full" loading="eager">
         </div>
       </div>
     </section>
@@ -128,33 +159,33 @@
         <p class="mt-2 text-slate-600">Focused on boiler installations, we provide end-to-end service: advice, supply, fitting, and aftercare.</p>
 
         <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <article class="p-6 bg-white rounded-lg shadow-sm">
-            <h3 class="font-semibold">New Boiler Installation</h3>
+          <article class="p-6 bg-white rounded-lg shadow-sm border border-gray-100 hover:border-accent transition">
+            <h3 class="font-semibold text-lg">New Boiler Installation</h3>
             <p class="mt-2 text-sm text-slate-600">Supply and fit of high-efficiency condensing boilers. Fully certified work with warranty and commissioning documentation.</p>
           </article>
 
-          <article class="p-6 bg-white rounded-lg shadow-sm">
-            <h3 class="font-semibold">Boiler Replacement</h3>
+          <article class="p-6 bg-white rounded-lg shadow-sm border border-gray-100 hover:border-accent transition">
+            <h3 class="font-semibold text-lg">Boiler Replacement</h3>
             <p class="mt-2 text-sm text-slate-600">Upgrade an old boiler to a modern, energy-efficient model to save on running costs and improve reliability.</p>
           </article>
 
-          <article class="p-6 bg-white rounded-lg shadow-sm">
-            <h3 class="font-semibold">Repairs & Servicing</h3>
+          <article class="p-6 bg-white rounded-lg shadow-sm border border-gray-100 hover:border-accent transition">
+            <h3 class="font-semibold text-lg">Repairs & Servicing</h3>
             <p class="mt-2 text-sm text-slate-600">Routine servicing and emergency repairs to keep your heating running smoothly all year round.</p>
           </article>
 
-          <article class="p-6 bg-white rounded-lg shadow-sm">
-            <h3 class="font-semibold">Full Central Heating</h3>
+          <article class="p-6 bg-white rounded-lg shadow-sm border border-gray-100 hover:border-accent transition">
+            <h3 class="font-semibold text-lg">Full Central Heating</h3>
             <p class="mt-2 text-sm text-slate-600">Radiator replacements, system upgrades, and balancing for even, reliable heat throughout the home.</p>
           </article>
 
-          <article class="p-6 bg-white rounded-lg shadow-sm">
-            <h3 class="font-semibold">Plumbing & Bathroom Work</h3>
+          <article class="p-6 bg-white rounded-lg shadow-sm border border-gray-100 hover:border-accent transition">
+            <h3 class="font-semibold text-lg">Plumbing & Bathroom Work</h3>
             <p class="mt-2 text-sm text-slate-600">From leaks to full bathroom plumbing — professional, tidy workmanship.</p>
           </article>
 
-          <article class="p-6 bg-white rounded-lg shadow-sm">
-            <h3 class="font-semibold">Gas Safety & Certificates</h3>
+          <article class="p-6 bg-white rounded-lg shadow-sm border border-gray-100 hover:border-accent transition">
+            <h3 class="font-semibold text-lg">Gas Safety & Certificates</h3>
             <p class="mt-2 text-sm text-slate-600">CP12 and landlord certificates issued after checks and servicing where required.</p>
           </article>
         </div>
@@ -170,22 +201,22 @@
 
         <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
           <figure class="bg-gray-100 rounded overflow-hidden">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipNcqLVhThFs2mmnUWjnLFGe2Gn_VEJOEXtJjJVg=s680-w680-h510-rw" alt="Combi boiler installation - rear of boiler unit" class="object-cover w-full h-48">
+            <img src="https://lh3.googleusercontent.com/p/AF1QipNcqLVhThFs2mmnUWjnLFGe2Gn_VEJOEXtJjJVg=s680-w680-h510-rw" alt="Combi boiler installation - rear of boiler unit" class="object-cover w-full h-48" loading="lazy">
             <figcaption class="p-2 text-xs text-slate-600">Combi boiler install</figcaption>
           </figure>
 
           <figure class="bg-gray-100 rounded overflow-hidden">
-            <img src="image00005.jpeg" alt="System boiler repair" class="object-cover w-full h-48">
-            <figcaption class="p-2 text-xs text-slate-600">System boiler Repair</figcaption>
+            <img src="./image00005.jpeg" alt="System boiler repair" class="object-cover w-full h-48" loading="lazy">
+            <figcaption class="p-2 text-xs text-slate-600">System boiler repair</figcaption>
           </figure>
 
           <figure class="bg-gray-100 rounded overflow-hidden">
-            <img src="image00002.jpeg" alt="Boiler and new radiators fitted" class="object-cover w-full h-48">
+            <img src="./image00002.jpeg" alt="Boiler and new radiators fitted" class="object-cover w-full h-48" loading="lazy">
             <figcaption class="p-2 text-xs text-slate-600">Full heating upgrade</figcaption>
           </figure>
 
           <figure class="bg-gray-100 rounded overflow-hidden">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipP_pmE1CIjqtvWDp0nm8nrHxapvHHH-oYqybDJV=s680-w680-h510-rw" alt="Full Bathroom Renovation" class="object-cover w-full h-48">
+            <img src="https://lh3.googleusercontent.com/p/AF1QipP_pmE1CIjqtvWDp0nm8nrHxapvHHH-oYqybDJV=s680-w680-h510-rw" alt="Full Bathroom Renovation" class="object-cover w-full h-48" loading="lazy">
             <figcaption class="p-2 text-xs text-slate-600">Full Bathroom Renovation</figcaption>
           </figure>
         </div>
@@ -196,17 +227,20 @@
       <div class="site-container">
         <h2 class="text-2xl font-bold">What customers say</h2>
         <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <blockquote class="p-6 bg-white rounded-lg shadow-sm">
+          <blockquote class="p-6 bg-white rounded-lg shadow-sm border border-gray-100">
+            <div class="text-yellow-500 mb-2">★★★★★</div>
             <p class="text-slate-700">"Fast, clean and great communication. New boiler fitted in a day and explained everything. Highly recommended."</p>
             <footer class="mt-4 text-sm text-slate-500">— J. Martin, Local homeowner</footer>
           </blockquote>
 
-          <blockquote class="p-6 bg-white rounded-lg shadow-sm">
+          <blockquote class="p-6 bg-white rounded-lg shadow-sm border border-gray-100">
+            <div class="text-yellow-500 mb-2">★★★★★</div>
             <p class="text-slate-700">"Great price and the system performs better than before. Would use again."</p>
             <footer class="mt-4 text-sm text-slate-500">— A. Patel</footer>
           </blockquote>
 
-          <blockquote class="p-6 bg-white rounded-lg shadow-sm">
+          <blockquote class="p-6 bg-white rounded-lg shadow-sm border border-gray-100">
+            <div class="text-yellow-500 mb-2">★★★★★</div>
             <p class="text-slate-700">"Professional and tidy. Issued certificate straight away. Excellent service."</p>
             <footer class="mt-4 text-sm text-slate-500">— Landlord, Greater Manchester</footer>
           </blockquote>
@@ -221,52 +255,58 @@
           <p class="mt-2 text-slate-600">Call or message to arrange a home visit. Clear pricing, flexible appointments and an experienced engineer who leaves homes tidy.</p>
 
           <div class="mt-6">
-            <p class="text-sm">Phone</p>
-            <a href="tel:+447887876140" class="text-2xl font-semibold text-accent">+44 7887 876140</a>
+            <p class="text-sm font-medium">Phone</p>
+            <a href="tel:+447887876140" class="text-2xl font-semibold text-accent hover:underline">+44 7887 876140</a>
 
-            <p class="mt-4 text-sm">Email</p>
-            <a href="mailto:chapsenquirys@gmail.com" class="text-primary">chapsenquirys@gmail.com</a>
+            <p class="mt-4 text-sm font-medium">Email</p>
+            <a href="mailto:chapsenquirys@gmail.com" class="text-primary hover:underline">chapsenquirys@gmail.com</a>
 
-            <p class="mt-4 text-sm">Service area</p>
+            <p class="mt-4 text-sm font-medium">Service area</p>
             <p class="text-slate-600">Liverpool, Manchester &amp; everywhere in between — call to check availability.</p>
           </div>
 
           <div class="mt-6">
-            <a href="#" class="inline-block bg-primary text-white px-4 py-2 rounded-md">Request callback</a>
+            <a href="tel:+447887876140" class="inline-block bg-accent text-white px-6 py-3 rounded-md hover:bg-red-600 transition">📞 Call Now for Immediate Service</a>
           </div>
 
           <p class="mt-6 text-xs text-slate-500">Availability: Mon–Sat. Emergency repairs subject to availability. For landlord / commercial work please call for a bespoke quote.</p>
         </div>
 
         <div>
-            <form x-data="{name:'',email:'',phone:'',message:''}"
-                  action="https://formsubmit.co/chapsenquirys@gmail.com"
-                  method="POST"
-                  class="bg-white p-6 rounded-lg shadow-sm">
-              <input type="hidden" name="_subject" value="Crawford Heating — New quote request">
-              <input type="hidden" name="_captcha" value="false">
-              <input type="hidden" name="_next" value="https://crawfordheating.uk">
-              <input type="text" name="_honey" style="display:none">
+          <form name="contact" 
+                method="POST" 
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                action="/thank-you"
+                class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+            
+            <input type="hidden" name="form-name" value="contact">
+            
+            <!-- Honeypot for spam prevention -->
+            <p class="hidden">
+              <label>Don't fill this out if you're human: <input name="bot-field"></label>
+            </p>
 
-              <label class="block text-sm font-medium">Name</label>
-              <input name="name" x-model="name" class="w-full mt-1 p-2 border rounded" required>
+            <label class="block text-sm font-medium">Name *</label>
+            <input name="name" type="text" class="w-full mt-1 p-2 border border-gray-300 rounded focus:border-accent focus:ring-1 focus:ring-accent" required>
 
-              <label class="block text-sm font-medium mt-4">Phone</label>
-              <input name="phone" x-model="phone" class="w-full mt-1 p-2 border rounded" required>
+            <label class="block text-sm font-medium mt-4">Phone *</label>
+            <input name="phone" type="tel" class="w-full mt-1 p-2 border border-gray-300 rounded focus:border-accent focus:ring-1 focus:ring-accent" required>
 
-              <label class="block text-sm font-medium mt-4">Email</label>
-              <input name="email" x-model="email" type="email" class="w-full mt-1 p-2 border rounded">
+            <label class="block text-sm font-medium mt-4">Email</label>
+            <input name="email" type="email" class="w-full mt-1 p-2 border border-gray-300 rounded focus:border-accent focus:ring-1 focus:ring-accent">
 
-              <label class="block text-sm font-medium mt-4">Message</label>
-              <textarea name="message" x-model="message" rows="4" class="w-full mt-1 p-2 border rounded" placeholder="Brief details about the job (e.g. boiler age, property type)"></textarea>
+            <label class="block text-sm font-medium mt-4">Message</label>
+            <textarea name="message" rows="4" class="w-full mt-1 p-2 border border-gray-300 rounded focus:border-accent focus:ring-1 focus:ring-accent" placeholder="Brief details about the job (e.g. boiler age, property type)"></textarea>
 
-              <div class="mt-4 flex items-center gap-3">
-                <button type="submit" class="bg-accent text-white px-4 py-2 rounded">Send request</button>
-                <a href="tel:+447887876140" class="text-sm text-primary">Or call +44 7887 876140</a>
-              </div>
+            <div class="mt-4 flex flex-col sm:flex-row items-start sm:items-center gap-3">
+              <button type="submit" class="bg-accent text-white px-6 py-2 rounded hover:bg-red-600 transition">Send request</button>
+              <span class="text-sm text-slate-500">or</span>
+              <a href="tel:+447887876140" class="text-sm text-accent font-semibold hover:underline">Call +44 7887 876140</a>
+            </div>
 
-              <p class="mt-3 text-xs text-slate-500">By sending this you agree to be contacted about this enquiry. Personal data used only to respond to your request.</p>
-            </form>
+            <p class="mt-3 text-xs text-slate-500">By sending this you agree to be contacted about this enquiry. Personal data used only to respond to your request.</p>
+          </form>
         </div>
       </div>
     </section>
@@ -275,19 +315,29 @@
       <div class="site-container">
         <h2 class="text-2xl font-bold">Frequently asked questions</h2>
         <div class="mt-6 space-y-4">
-          <details class="bg-white p-4 rounded shadow-sm">
-            <summary class="font-semibold">How long does a new boiler installation take?</summary>
+          <details class="bg-white p-4 rounded shadow-sm border border-gray-100">
+            <summary class="font-semibold cursor-pointer">How long does a new boiler installation take?</summary>
             <p class="mt-2 text-slate-600">Typically one day for a like-for-like swap. Full system upgrades may take longer; a site visit will confirm timing.</p>
           </details>
 
-          <details class="bg-white p-4 rounded shadow-sm">
-            <summary class="font-semibold">Do you provide warranties?</summary>
+          <details class="bg-white p-4 rounded shadow-sm border border-gray-100">
+            <summary class="font-semibold cursor-pointer">Do you provide warranties?</summary>
             <p class="mt-2 text-slate-600">Yes. We supply manufacturer warranties where available and provide workmanship guarantees on installations.</p>
           </details>
 
-          <details class="bg-white p-4 rounded shadow-sm">
-            <summary class="font-semibold">Are you Gas Safe registered?</summary>
+          <details class="bg-white p-4 rounded shadow-sm border border-gray-100">
+            <summary class="font-semibold cursor-pointer">Are you Gas Safe registered?</summary>
             <p class="mt-2 text-slate-600">Yes — all gas work is carried out by a Gas Safe registered engineer. Certificates issued on completion.</p>
+          </details>
+
+          <details class="bg-white p-4 rounded shadow-sm border border-gray-100">
+            <summary class="font-semibold cursor-pointer">What areas do you cover?</summary>
+            <p class="mt-2 text-slate-600">We cover Liverpool, Manchester and all surrounding areas. Call to check if we service your specific location.</p>
+          </details>
+
+          <details class="bg-white p-4 rounded shadow-sm border border-gray-100">
+            <summary class="font-semibold cursor-pointer">How much does a new boiler cost?</summary>
+            <p class="mt-2 text-slate-600">Costs vary depending on the boiler type and installation complexity. Contact us for a free, no-obligation quote tailored to your property.</p>
           </details>
         </div>
       </div>
@@ -298,18 +348,19 @@
   <footer class="bg-primary text-white py-8">
     <div class="site-container flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
       <div>
-        <div class="font-semibold">Crawford Heating</div>
+        <div class="font-semibold text-lg">Crawford Heating</div>
         <div class="text-sm mt-1">Experienced heating & plumbing engineer — 40 years</div>
-        <div class="text-sm mt-2">Phone: <a href="tel:+447887876140" class="underline">+44 7887 876140</a></div>
+        <div class="text-sm mt-2">Phone: <a href="tel:+447887876140" class="underline hover:text-accent">+44 7887 876140</a></div>
+        <div class="text-sm">Email: <a href="mailto:chapsenquirys@gmail.com" class="underline hover:text-accent">chapsenquirys@gmail.com</a></div>
       </div>
 
       <nav class="flex gap-4 text-sm">
-        <a href="#services">Services</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Contact</a>
+        <a href="#services" class="hover:text-accent">Services</a>
+        <a href="#portfolio" class="hover:text-accent">Portfolio</a>
+        <a href="#contact" class="hover:text-accent">Contact</a>
       </nav>
 
-      <div class="text-sm">&copy; <span x-text="new Date().getFullYear()">2026</span> Crawford Heating</div>
+      <div class="text-sm">&copy; <span x-text="new Date().getFullYear()">2026</span> Crawford Heating. All rights reserved.</div>
     </div>
   </footer>
 
@@ -340,6 +391,22 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Yes — all gas work is carried out by a Gas Safe registered engineer. Certificates issued on completion."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What areas do you cover?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We cover Liverpool, Manchester and all surrounding areas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does a new boiler cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Costs vary depending on the boiler type and installation complexity. Contact us for a free, no-obligation quote tailored to your property."
         }
       }
     ]
